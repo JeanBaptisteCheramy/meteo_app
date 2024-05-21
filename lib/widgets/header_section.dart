@@ -18,7 +18,9 @@ class Header extends StatelessWidget {
             'salut',
           ),
           Image(
-            image: AssetImage('sun.png'),
+            image: AssetImage('assets/images/sun.png'),
+            height: 200,
+            width: 200,
           )
         ],
       ),
