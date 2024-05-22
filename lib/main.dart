@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meteo_app/pages/home.dart';
+import 'package:meteo_app/pages/locate.dart';
+import 'package:meteo_app/store/location_store.dart';
 
-void main() {
+Future main() async {
+  await dotenv.load(fileName: ".env");
   runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final location = ref.watch(locationStore.notifier).location['city'];
+
     return MaterialApp(
         title: "Météo App",
         debugShowCheckedModeBanner: false,
@@ -21,6 +27,6 @@ class MyApp extends StatelessWidget {
             brightness: Brightness.light,
           ),
         ),
-        home: const HomePage());
+        home: location == null ? const HomePage() : const Locate());
   }
 }
