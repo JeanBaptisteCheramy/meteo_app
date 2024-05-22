@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:meteo_app/store/location_store.dart';
 import 'package:meteo_app/widgets/header_section.dart';
 
 var logger = Logger();
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   void fonction() {
@@ -12,7 +14,7 @@ class HomePage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
         body: Container(
       width: double.infinity,
@@ -29,8 +31,8 @@ class HomePage extends StatelessWidget {
             stops: [0.0, 1.0],
             tileMode: TileMode.clamp),
       ),
-      child: const Column(
-        children: [Header()],
+      child: Column(
+        children: [Header(ref.watch(locationStore.notifier).location)],
       ),
     ));
   }

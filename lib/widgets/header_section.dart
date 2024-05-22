@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
-  const Header({super.key});
+  const Header(this.data, {super.key});
+  final Map data;
 
   @override
   Widget build(BuildContext context) {
@@ -11,17 +12,17 @@ class Header extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: const Column(
+      child: Column(
         children: [
           Text(
-            style: TextStyle(color: Colors.blue),
-            'salut',
+            data['city'],
+            style: const TextStyle(color: Colors.blue),
           ),
-          Image(
+          const Image(
             image: AssetImage('assets/images/sun.png'),
-            height: 200,
-            width: 200,
-          )
+            height: 100,
+            width: 100,
+          ),
         ],
       ),
     );
