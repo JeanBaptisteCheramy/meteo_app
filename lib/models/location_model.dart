@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meteo_app/services/services.dart';
+import 'package:meteo_app/models/coordinates_model.dart';
 
 class LocationModel extends ChangeNotifier {
   Map<String, dynamic> location = {
@@ -9,11 +9,14 @@ class LocationModel extends ChangeNotifier {
   };
   LocationModel({required this.location});
 
-  void setLocation(String city, int stateCode, int countryCode) {
-    getCoordinates(city, stateCode, countryCode);
-    location['city'] = city;
-    location['stateCode'] = stateCode;
-    location['countryCode'] = countryCode;
+  Future<void> setLocation(String city, int stateCode, int countryCode) async {
+    Coordinates coordinates =
+        await getCoordinates(city, stateCode, countryCode);
+
+    location['city'] = coordinates.name;
+    location['stateCode'] = coordinates.longitude;
+    location['countryCode'] = coordinates.latitude;
+
     notifyListeners();
   }
 }
