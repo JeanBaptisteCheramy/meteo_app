@@ -6,4 +6,5 @@ class WeatherInfos {
   final String clouds = '';
   final Map<String, int> sys = {};
   final String name = '';
+  
 }
