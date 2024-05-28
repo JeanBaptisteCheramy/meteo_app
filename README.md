@@ -1,6 +1,16 @@
+# About me
+Welcome to my Github.
+https://github.com/JeanBaptisteCheramy
+
+If you are a recruiter, feel free to contact me via LinkedIn. I am always optimistic about engaging in discussions and open to new opportunities.
+https://www.linkedin.com/in/jean-baptiste-ch%C3%A9ramy/
+
 # meteo_app
 
-A new Flutter project.
+This is my second Flutter project, a simple meteo app. The goal is to build a project with forms, API calls and discover the Riverpod framework for state management.
+I am self-learning by conducting research on the internet. I work using the documentation and all possible resources to enhance my skills on a daily basis.
+
+It's a work in progress.
 
 ## Getting Started
 
