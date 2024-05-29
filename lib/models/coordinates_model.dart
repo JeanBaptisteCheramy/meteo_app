@@ -60,6 +60,6 @@ Future<Coordinates> getCoordinates(
       throw Exception('Réponse API invalide');
     }
   } else {
-    throw Exception('Échec du chargement de l\'album');
+    throw Exception('Échec du chargement de la localisation');
   }
 }

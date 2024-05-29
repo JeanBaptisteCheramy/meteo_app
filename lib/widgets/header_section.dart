@@ -6,6 +6,7 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint(data.toString());
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -22,6 +23,10 @@ class Header extends StatelessWidget {
             image: AssetImage('assets/images/sun.png'),
             height: 100,
             width: 100,
+          ),
+          Text(
+            data['weather']['main']['main']['temp'].toString(),
+            style: const TextStyle(color: Colors.blue),
           ),
         ],
       ),
