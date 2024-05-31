@@ -9,10 +9,6 @@ var logger = Logger();
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
-  void fonction() {
-    logger.f('salut');
-  }
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(

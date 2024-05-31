@@ -23,10 +23,13 @@ class LocationModel extends ChangeNotifier {
         await getWeather(location['latitude'], location['longitude']);
 
     location['weather']['coord'] = infos.coord;
+    location['weather']['weather'] = infos.weather;
     location['weather']['main'] = infos.main;
     location['weather']['wind'] = infos.wind;
     location['weather']['clouds'] = infos.clouds;
     location['weather']['sys'] = infos.sys;
+    location['weather']['name'] = infos.name;
+
 
     notifyListeners();
   }

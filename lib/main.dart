@@ -20,7 +20,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
         title: "Météo App",
         debugShowCheckedModeBanner: false,
-        // themeMode: ThemeMode.system,
+        themeMode: ThemeMode.system,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.blueGrey,

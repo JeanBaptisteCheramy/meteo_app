@@ -25,7 +25,7 @@ class Header extends StatelessWidget {
             width: 100,
           ),
           Text(
-            data['weather']['main']['main']['temp'].toString(),
+            data['weather']['main']['temp'].toString(),
             style: const TextStyle(color: Colors.blue),
           ),
         ],
