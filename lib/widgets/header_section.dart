@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meteo_app/services/services.dart';
 
 class Header extends StatelessWidget {
   const Header(this.data, {super.key});
@@ -25,8 +26,20 @@ class Header extends StatelessWidget {
             width: 100,
           ),
           Text(
-            data['weather']['main']['temp'].toString(),
+            "${kelvinToDeg(data['weather']['main']['temp'])}°C",
             style: const TextStyle(color: Colors.blue),
+          ),
+          Row(
+            children: [
+              Text(
+                "Min: ${kelvinToDeg(data['weather']['main']['temp_min'])}°C",
+                style: const TextStyle(color: Colors.blue),
+              ),
+              Text(
+                "Max: ${kelvinToDeg(data['weather']['main']['temp_max'])}°C",
+                style: const TextStyle(color: Colors.blue),
+              ),
+            ],
           ),
         ],
       ),

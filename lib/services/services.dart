@@ -11,3 +11,8 @@ void log(dynamic arg) {
     log.d(arg);
   }
 }
+
+String kelvinToDeg(double kelvin) {
+  String temp = (kelvin - 273.15).toStringAsFixed(1);
+  return temp;
+}
