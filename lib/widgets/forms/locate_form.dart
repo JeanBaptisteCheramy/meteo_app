@@ -68,9 +68,9 @@ class LocateFormState extends ConsumerState<LocateForm> {
           Align(
               alignment: Alignment.center,
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    ref.read(locationStore.notifier).setLocation(
+                    await ref.read(locationStore.notifier).setLocation(
                         locationController['city'].text,
                         int.parse(locationController['stateCode'].text),
                         int.parse(locationController['countryCode'].text));
