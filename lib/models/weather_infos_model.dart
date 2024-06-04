@@ -41,33 +41,7 @@ Future<WeatherInfos> getWeather(double latitude, double longitude) async {
       'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey'));
 
   if (response.statusCode == 200) {
-    // dynamic data = jsonDecode(response.body);
-
-    // Map<String, dynamic> iterateMap(Map<String, dynamic> object) {
-    //   Map<String, dynamic> result = {};
-    //   object.forEach((key, value) {
-    //     result[key] = value;
-    //   });
-    //   return result;
-    // }
-
-    // Map<String, dynamic> coord = {'coord': iterateMap(data['coord'])};
-    // Map<String, dynamic> main = {'main': iterateMap(data['main'])};
-    // // List<Map<String, dynamic>> weather = iterateMap(data['weather']);
-    // Map<String, dynamic> wind = {'wind': iterateMap(data['wind'])};
-    // Map<String, dynamic> clouds = {'clouds': iterateMap(data['clouds'])};
-    // Map<String, dynamic> sys = {'sys': iterateMap(data['sys'])};
-
     return WeatherInfos.fromJson(jsonDecode(response.body));
-
-    // return WeatherInfos(
-    //   coord: coord,
-    //   // weather: weather,
-    //   main: main,
-    //   wind: wind,
-    //   clouds: clouds,
-    //   sys: sys,
-    // );
   } else {
     throw Exception('Échec du chargement des informations météorologiques');
   }

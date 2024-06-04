@@ -30,7 +30,6 @@ class LocationModel extends ChangeNotifier {
     location['weather']['sys'] = infos.sys;
     location['weather']['name'] = infos.name;
 
-
     notifyListeners();
   }
 }
