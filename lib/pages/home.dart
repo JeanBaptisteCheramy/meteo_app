@@ -15,7 +15,7 @@ class HomePage extends ConsumerWidget {
         body: Container(
       width: double.infinity,
       height: double.infinity,
-      padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
+      padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
             colors: [

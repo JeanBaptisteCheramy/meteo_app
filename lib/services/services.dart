@@ -1,4 +1,5 @@
 import 'package:logger/logger.dart';
+import 'package:unixtime/unixtime.dart';
 
 void log(dynamic arg) {
   var log = Logger();
@@ -15,6 +16,10 @@ void log(dynamic arg) {
 String kelvinToDeg(double kelvin) {
   String temp = (kelvin - 273.15).toStringAsFixed(1);
   return temp;
+}
+
+String msConversion(double speed) {
+  return (speed * 3.6).toStringAsFixed(1);
 }
 
 String weatherImagePicker(int id) {
@@ -53,6 +58,55 @@ String weatherImagePicker(int id) {
     case 803 || 804:
       result = 'cloud.png';
       break;
+    default:
+      result = "";
   }
   return 'assets/images/$result';
+}
+
+String backImagePicker(String weather, int sunset, int sunrise) {
+  final timeNow = DateTime.now().unixtime;
+  String result = "";
+
+  if (timeNow > sunrise && timeNow < sunset) {
+    switch (weather) {
+      case "Thunderstorm":
+        result = "thunder-back.jpeg";
+        break;
+      case "Drizzle":
+        result = "drizzle-back.jpg";
+        break;
+      case "Rain":
+        result = "rain-back.jpg";
+        break;
+      case "Snow":
+        result = "snow-back.jpeg";
+        break;
+      case "Atmosphere":
+        result = "fog-back.avif";
+        break;
+      case "Clear":
+        result = "sun-back.jpg";
+        break;
+      case "Clouds":
+        result = "cloud-back.jpg";
+        break;
+    }
+  } else {
+    switch (weather) {
+      case "Drizzle" || "Rain" || "Snow" || "Atmosphere" || "Clouds":
+        result = "night-cloud-back.jpeg";
+        break;
+      case "Thunderstorm":
+        result = "night-thunder-back.avif";
+        break;
+      case "Clear":
+        result = "night-clear-back.avif";
+        break;
+      default:
+        result = "";
+    }
+  }
+
+  return result;
 }
