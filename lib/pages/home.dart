@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:meteo_app/services/services.dart';
 import 'package:meteo_app/store/location_store.dart';
 import 'package:meteo_app/widgets/header_section.dart';
 
@@ -13,20 +14,21 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
         body: Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+              'assets/images/${backImagePicker(ref.watch(locationStore.notifier).location['weather']['weather'][0]['main'], ref.watch(locationStore.notifier).location['weather']['sys']['sunset'], ref.watch(locationStore.notifier).location['weather']['sys']['sunrise'])}'),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            Colors.white.withOpacity(0.8),
+            BlendMode.dstATop,
+          ),
+        ),
+        color: const Color.fromARGB(48, 132, 197, 254),
+      ),
       width: double.infinity,
       height: double.infinity,
       padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 53, 85, 181),
-              Color.fromARGB(255, 42, 12, 81),
-            ],
-            begin: FractionalOffset(0.0, 0.0),
-            end: FractionalOffset(0.0, 0.9),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
-      ),
       child: Column(
         children: [Header(ref.watch(locationStore.notifier).location)],
       ),

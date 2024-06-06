@@ -16,7 +16,7 @@ class TextsStyles {
   static const titleMD = TextStyle(
       color: Color.fromARGB(255, 249, 245, 255),
       fontFamily: 'Maven',
-      fontSize: 32,
+      fontSize: 40,
       fontWeight: FontWeight.w400);
   static const content = TextStyle(
       color: Color.fromARGB(255, 249, 245, 255),

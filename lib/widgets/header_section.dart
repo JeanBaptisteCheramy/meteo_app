@@ -12,18 +12,6 @@ class Header extends StatelessWidget {
     return Container(
         padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
         width: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-                'assets/images/${backImagePicker(data['weather']['weather'][0]['main'], data['weather']['sys']['sunset'], data['weather']['sys']['sunrise'])}'),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-              Colors.white.withOpacity(0.8),
-              BlendMode.dstATop,
-            ),
-          ),
-          color: const Color.fromARGB(48, 132, 197, 254),
-        ),
         child: Column(children: [
           SizedBox(
             height: 80,
@@ -35,26 +23,30 @@ class Header extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(121, 0, 0, 0),
-                  borderRadius: BorderRadius.circular(40),
+                  borderRadius: BorderRadius.circular(15),
                 ),
                 child: Column(
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Image(
                           image: AssetImage(weatherImagePicker(
                               data['weather']['weather'][0]['id'])),
-                          height: 50,
-                          width: 50,
+                          height: 60,
+                          width: 60,
                         ),
                         Text(
                             "${kelvinToDeg(data['weather']['main']['temp'])}°C",
                             style: TextsStyles.titleMD),
                       ],
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
                             "Min: ${kelvinToDeg(data['weather']['main']['temp_min'])}°C",
@@ -64,8 +56,9 @@ class Header extends StatelessWidget {
                             style: TextsStyles.content),
                       ],
                     ),
+                    const SizedBox(height: 10),
                     Text(
-                        "Vent: ${msConversion(data['weather']['wind']['speed'])}km/h",
+                        "Vent: ${msConversion(data['weather']['wind']['speed'])} km/h",
                         style: TextsStyles.content),
                   ],
                 ),
