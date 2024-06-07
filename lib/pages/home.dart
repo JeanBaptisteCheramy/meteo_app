@@ -4,14 +4,16 @@ import 'package:logger/logger.dart';
 import 'package:meteo_app/services/services.dart';
 import 'package:meteo_app/store/location_store.dart';
 import 'package:meteo_app/widgets/header_section.dart';
+import 'package:meteo_app/widgets/mid_section.dart';
 
 var logger = Logger();
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var location = ref.watch(locationStore.notifier).location;
+
     return Scaffold(
         body: Container(
       decoration: BoxDecoration(
@@ -30,7 +32,10 @@ class HomePage extends ConsumerWidget {
       height: double.infinity,
       padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
       child: Column(
-        children: [Header(ref.watch(locationStore.notifier).location)],
+        children: [
+          Header(location),
+          MidSection(location['forecast']),
+        ],
       ),
     ));
   }

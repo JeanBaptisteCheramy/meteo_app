@@ -8,7 +8,6 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(data['forecast'].toString());
     return Container(
         padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
         width: double.infinity,
