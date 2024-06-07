@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:logger/logger.dart';
 import 'package:meteo_app/services/services.dart';
 import 'package:meteo_app/store/location_store.dart';
 import 'package:meteo_app/widgets/header_section.dart';
 import 'package:meteo_app/widgets/mid_section.dart';
-
-var logger = Logger();
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});

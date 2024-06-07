@@ -22,5 +22,11 @@ class TextsStyles {
       color: Color.fromARGB(255, 249, 245, 255),
       fontFamily: 'Maven',
       fontSize: 18,
-      fontWeight: FontWeight.w400);
+      fontWeight: FontWeight.w700);
+  static const contentSM = TextStyle(
+      color: Color.fromARGB(255, 249, 245, 255),
+      fontFamily: 'Maven',
+      fontSize: 14,
+      letterSpacing: -0.5,
+      fontWeight: FontWeight.w700);
 }

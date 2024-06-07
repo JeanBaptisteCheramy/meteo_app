@@ -32,7 +32,9 @@ class Header extends StatelessWidget {
                       children: [
                         Image(
                           image: AssetImage(weatherImagePicker(
-                              data['weather']['weather'][0]['id'])),
+                              data['weather']['weather'][0]['id'],
+                              data['weather']['sys']['sunset'],
+                              data['weather']['sys']['sunrise'] )),
                           height: 60,
                           width: 60,
                         ),
