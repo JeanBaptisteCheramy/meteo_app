@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meteo_app/models/coordinates_model.dart';
+import 'package:meteo_app/models/forecast_5days.dart';
 import 'package:meteo_app/models/weather_infos_model.dart';
 
 class LocationModel extends ChangeNotifier {
@@ -8,6 +9,7 @@ class LocationModel extends ChangeNotifier {
     'longitude': null,
     'latitude': null,
     'weather': {},
+    'forecast': {},
   };
   LocationModel({required this.location});
 
@@ -29,6 +31,10 @@ class LocationModel extends ChangeNotifier {
     location['weather']['clouds'] = infos.clouds;
     location['weather']['sys'] = infos.sys;
     location['weather']['name'] = infos.name;
+
+    Forecast5Days forecast =
+        await getForecast(location['latitude'], location['longitude']);
+    location['forecast']['forecast'] = forecast.forecast;
 
     notifyListeners();
   }
