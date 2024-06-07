@@ -43,6 +43,7 @@ dependencies:
   flutter_dotenv: ^5.1.0
   http: ^1.2.1
   unixtime: ^1.0.0
+  glassmorphism_ui: ^0.3.0
 
 dev_dependencies:
   flutter_test:
