@@ -6,8 +6,8 @@ class TextsStyles {
       shadows: [
         Shadow(
           blurRadius: 10.0, // shadow blur
-          color: Color.fromARGB(194, 0, 0, 0), // shadow color
-          offset: Offset(2.0, 2.0), // how much shadow will be shown
+          color: Color.fromARGB(147, 0, 0, 0), // shadow color
+          offset: Offset(1.4, 1.4), // how much shadow will be shown
         ),
       ],
       fontFamily: 'Maven',
