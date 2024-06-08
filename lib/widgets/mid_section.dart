@@ -9,7 +9,6 @@ class MidSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // log(data);
     List<Widget> forecasts = [];
     for (int i = 0; i <= 5; i++) {
       forecasts.add(ForecastCard(data['forecast'][i]));
