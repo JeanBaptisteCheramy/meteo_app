@@ -36,13 +36,13 @@ String weatherImagePicker(int id, int sunset, int sunrise) {
         result = 'thundery.png';
         break;
       case >= 300 && <= 310:
-        result = 'drizzle.png';
+        result = 'rainy.png';
         break;
       case >= 311 && <= 399:
         result = 'cloud-drizzle.png';
         break;
-      case >= 500 && <= 6:
-        result = 'humidity.png';
+      case >= 500 && <= 510:
+        result = 'heavy-rain.png';
         break;
       case >= 511 && <= 599:
         result = 'heavy-rain.png';
@@ -74,13 +74,13 @@ String weatherImagePicker(int id, int sunset, int sunrise) {
         result = 'thundery.png';
         break;
       case >= 300 && <= 310:
-        result = 'drizzle.png';
+        result = 'rainy.png';
         break;
       case >= 311 && <= 399:
         result = 'cloud-drizzle.png';
         break;
-      case >= 500 && <= 6:
-        result = 'humidity.png';
+      case >= 500 && <= 510:
+        result = 'heavy-rain.png';
         break;
       case >= 511 && <= 599:
         result = 'heavy-rain.png';

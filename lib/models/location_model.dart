@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meteo_app/models/coordinates_model.dart';
 import 'package:meteo_app/models/forecast_5days.dart';
+import 'package:meteo_app/models/forecast_day_by_day.dart';
 import 'package:meteo_app/models/weather_infos_model.dart';
 
 class LocationModel extends ChangeNotifier {
@@ -10,6 +11,7 @@ class LocationModel extends ChangeNotifier {
     'latitude': null,
     'weather': {},
     'forecast': {},
+    'upcomingDays': []
   };
   LocationModel({required this.location});
 
@@ -35,6 +37,10 @@ class LocationModel extends ChangeNotifier {
     Forecast5Days forecast =
         await getForecast(location['latitude'], location['longitude']);
     location['forecast']['forecast'] = forecast.forecast;
+
+    ForecastDayByDay upcomingDays =
+        await getDayByDayForecast(location['latitude'], location['longitude']);
+    location['upcomingDays'] = upcomingDays.upcomingDays;
 
     notifyListeners();
   }

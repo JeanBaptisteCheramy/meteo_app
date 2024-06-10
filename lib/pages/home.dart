@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meteo_app/services/services.dart';
 import 'package:meteo_app/store/location_store.dart';
+import 'package:meteo_app/widgets/down_section.dart';
 import 'package:meteo_app/widgets/header_section.dart';
 import 'package:meteo_app/widgets/mid_section.dart';
 
@@ -32,6 +33,7 @@ class HomePage extends ConsumerWidget {
         children: [
           Header(location),
           MidSection(location['forecast']),
+          DownSection(location['upcomingDays'])
         ],
       ),
     ));

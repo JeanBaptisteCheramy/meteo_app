@@ -7,6 +7,7 @@ final locationStore = ChangeNotifierProvider<LocationModel>((ref) {
     'longitude': null,
     'latitude': null,
     'weather': {},
-    'forecast': {}
+    'forecast': {},
+    'upcomingDays':[],
   });
 });

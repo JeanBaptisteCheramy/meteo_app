@@ -13,13 +13,13 @@ class ForecastCard extends ConsumerWidget {
     var location = ref.watch(locationStore.notifier).location;
     final time = DateTime.parse(data['dt_txt']);
     final hour = time.hour;
-    debugPrint(data['weather'][0].toString());
     return SizedBox(
         height: 150,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('${hour.toString()}h', style: TextsStyles.content),
+            const Spacer(),
             Image(
               image: AssetImage(weatherImagePicker(
                   data['weather'][0]['id'],
@@ -28,6 +28,7 @@ class ForecastCard extends ConsumerWidget {
               width: 40,
               height: 40,
             ),
+            const Spacer(),
             Text("${kelvinToDeg(data['main']['temp'])} °C",
                 style: TextsStyles.contentSM)
           ],

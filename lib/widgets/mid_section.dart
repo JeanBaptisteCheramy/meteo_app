@@ -32,6 +32,7 @@ class MidSection extends StatelessWidget {
         shadowStrength: 0.7,
         shadowColor: const Color.fromARGB(213, 255, 255, 255).withOpacity(0.3),
         child: Container(
+            padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
             height: height,
             color: const Color.fromARGB(29, 0, 0, 0),
             child: Row(
