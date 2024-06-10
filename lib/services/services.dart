@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 import 'package:unixtime/unixtime.dart';
 
@@ -25,6 +26,38 @@ String kelvinToDeg(dynamic kelvin) {
 
 String msConversion(double speed) {
   return (speed * 3.6).toStringAsFixed(1);
+}
+
+String getDay(String date) {
+  var usedDate = DateTime.parse(date);
+  String day = DateFormat('EEEE').format(usedDate);
+
+  switch (day) {
+    case 'Monday':
+      day = 'Lundi';
+      break;
+    case 'Tuesday':
+      day = 'Mardi';
+      break;
+    case 'Wednesday':
+      day = 'Mercredi';
+      break;
+    case 'Thursday':
+      day = 'Jeudi';
+      break;
+    case 'Friday':
+      day = 'Vendredi';
+      break;
+    case 'Saturday':
+      day = 'Samedi';
+      break;
+    case 'Sunday':
+      day = 'Dimanche';
+      break;
+    default:
+      return day;
+  }
+  return day;
 }
 
 String weatherImagePicker(int id, int sunset, int sunrise) {

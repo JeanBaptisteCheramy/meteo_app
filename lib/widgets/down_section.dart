@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism_ui/glassmorphism_ui.dart';
-import 'package:meteo_app/services/services.dart';
+import 'package:meteo_app/widgets/day_forecast.dart';
 
 class DownSection extends StatelessWidget {
-  const DownSection(this.data, {super.key});
+  DownSection(this.data, {super.key});
   final List data;
-  final double height = 150;
+  List<Widget> upcomingDays = [];
 
   @override
   Widget build(BuildContext context) {
-    log(data);
+    for (int i = 0; i <= 7; i++) {
+      upcomingDays.add(DayForecast(data[i]));
+    }
+
     return GlassContainer(
-        height: height,
         blur: 6,
         color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.8),
         gradient: LinearGradient(
@@ -29,12 +31,11 @@ class DownSection extends StatelessWidget {
         shadowColor: const Color.fromARGB(213, 255, 255, 255).withOpacity(0.3),
         child: Container(
             padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-            height: height,
             color: const Color.fromARGB(29, 0, 0, 0),
-            child: const Row(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [],
+              children: upcomingDays,
             )));
   }
 }
