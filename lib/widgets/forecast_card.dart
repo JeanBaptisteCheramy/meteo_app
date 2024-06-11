@@ -15,6 +15,7 @@ class ForecastCard extends ConsumerWidget {
     final hour = time.hour;
     return SizedBox(
         height: 150,
+        width: 85,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

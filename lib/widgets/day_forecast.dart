@@ -11,18 +11,19 @@ class DayForecast extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     log(data);
     return SizedBox(
+        height: 50,
         child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(getDay(data['datetime']), style: TextsStyles.content),
-        const Image(
-          image: AssetImage('assets/images/sun.png'),
-          width: 50,
-          height: 50,
-        ),
-        Text("Min: ${data['tmin']} °C - Max: ${data['tmax']} °C",
-            style: TextsStyles.content)
-      ],
-    ));
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(getDay(data['datetime']), style: TextsStyles.contentSM),
+            const Image(
+              image: AssetImage('assets/images/sun.png'),
+              width: 50,
+              height: 50,
+            ),
+            Text("Min: ${data['tmin']} °C - Max: ${data['tmax']} °C",
+                style: TextsStyles.contentSM),
+          ],
+        ));
   }
 }

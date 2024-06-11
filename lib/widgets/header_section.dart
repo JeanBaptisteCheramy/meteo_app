@@ -9,7 +9,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
+        padding: const EdgeInsets.fromLTRB(0, 80, 0, 0),
         width: double.infinity,
         child: Column(children: [
           SizedBox(
@@ -17,7 +17,7 @@ class Header extends StatelessWidget {
             child: Text(data['city'], style: TextsStyles.titleXL),
           ),
           FractionallySizedBox(
-              widthFactor: 0.8,
+              widthFactor: 0.7,
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -34,7 +34,7 @@ class Header extends StatelessWidget {
                           image: AssetImage(weatherImagePicker(
                               data['weather']['weather'][0]['id'],
                               data['weather']['sys']['sunset'],
-                              data['weather']['sys']['sunrise'] )),
+                              data['weather']['sys']['sunrise'])),
                           height: 60,
                           width: 60,
                         ),

@@ -10,7 +10,7 @@ class MidSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> forecasts = [];
-    for (int i = 0; i <= 5; i++) {
+    for (int i = 0; i <= 10; i++) {
       forecasts.add(ForecastCard(data['forecast'][i]));
     }
 
@@ -35,9 +35,8 @@ class MidSection extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
             height: height,
             color: const Color.fromARGB(29, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
               children: forecasts,
             )));
   }

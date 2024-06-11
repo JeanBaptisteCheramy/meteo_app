@@ -32,7 +32,13 @@ class HomePage extends ConsumerWidget {
       child: Column(
         children: [
           Header(location),
+          const SizedBox(
+            height: 30,
+          ),
           MidSection(location['forecast']),
+          const SizedBox(
+            height: 30,
+          ),
           DownSection(location['upcomingDays'])
         ],
       ),
